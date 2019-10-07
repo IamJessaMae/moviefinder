@@ -3,7 +3,7 @@
   width: 1400px;
   top: 0%;
   position: sticky;
-  background: rgb(246, 181, 134);
+  background: rgb(138, 182, 176);
 position: fixed;
   position: block;
   margin-bottom: 0px;
@@ -164,7 +164,7 @@ p{
 }
 
 .overview{
-  position: absolute; top: -240px; left: 380px;
+  position: absolute; top: 150px; left: 380px;
   
 }
 .overview2{
@@ -209,8 +209,9 @@ h2{
   
 }
 .cardM{
-  margin-left: 20px;
+  margin-left: 19px;
   margin-bottom: 20px;
+  background-color: #e7e7e7;
 }
 .myprojects{
   margin-left: 20px;
@@ -218,6 +219,12 @@ h2{
   height: 200px;
 }
 .project-title {
+  font-size: 10px;
+  color: black;
+  text-align: center;
+  margin-left: 10px;
+}
+.project-date {
   font-size: 10px;
   color: black;
   text-align: center;
@@ -237,4 +244,9 @@ h2{
 }
 .poster{
   margin-top: 60px;
+}
+
+
+.coming-text{
+  margin-top: 100px;
 }

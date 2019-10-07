@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Rate } from "antd";
 import "antd/dist/antd.css";
 import { menu } from "./Home";
 import axios from "axios";
 import Search from "antd/lib/input/Search";
-import { Card } from "antd";
 
 const apiKey = "9db315782d11e8413f7adeb2af8d626d";
 const imgURL = " http://image.tmdb.org/t/p/original";
@@ -75,73 +73,12 @@ export const Info: React.FC<moreProps> = ({ match }) => {
           <h3>{movie.original_title}</h3>
           {movie.release_date}
           <br></br>
-          <span>
-            <Rate disabled defaultValue={4} />
-          </span>
+
           <h4>Overview</h4>
           {movie.overview}
         </p>
       </div>
-      {/* <br></br>
-      <div className="trailer">
-        <iframe
-          src="https://www.youtube.com/embed/RH2BD49sEZI"
-          width="500"
-          height="300"
-          title="video"
-        />
-      </div> */}
-      {/* <h1 className="cast">Top Billed Cast</h1>
-        <section>
-          <div className="castpic">
-            {movieList.map((movies: movieProps, index: number) => (
-              // <Link to={value.link}>
-              // <img className="castpics" src={imgURL + movies.poster_path} />
-
-              <Card
-                key={index}
-                className="castcard"
-                hoverable
-                style={{ width: 200 }}
-              >
-                <p className="project-title">
-                  <span className="title"></span>
-                  {movies.original_title}
-                  <span className="title"></span>
-                </p>
-              </Card>
-              // </Link>
-            ))}
-          </div>
-        </section> */}
     </div>
   );
 };
 export default Info;
-
-{
-  /* <Card
-className="card"
-hoverable
-style={{ width: 500, height: 230 }}
-cover={
-  <p className="upcomingtex">
-    <img className="pic2" src={value.src} />
-    <strong>
-      <p className="title">{value.title}</p>
-    </strong>
-
-    <p className="title">{value.date}</p>
-
-    <Rate disabled defaultValue={4} />
-    <br></br>
-    <p className="title">{value.descr}</p>
-    <br></br>
-    <p className="title">
-      {" "}
-      <strong>Director:{value.director}</strong>
-    </p>
-  </p>
-}
-></Card> */
-}

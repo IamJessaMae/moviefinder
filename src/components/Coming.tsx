@@ -22,23 +22,23 @@ interface movieProps {
   poster_path: "";
 }
 
-export const Home = () => {
-  const [movieList, setMovieList] = useState([]);
+export const Upcoming = () => {
+  const [upcomingList, setComingList] = useState([]);
   const handleSearch = (query: any) => {
-    handleGetMovies(query);
+    handleGetUpcomingMovies(query);
   };
-  const handleGetMovies = async (query?: string) => {
+  const handleGetUpcomingMovies = async (query?: string) => {
     let response;
     // checks if {query} is not empty
     let url = query
       ? `${apiURL}/search/movie?api_key=${apiKey}&query=${query}` // not empty
       : `https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}`; // empty
     response = await axios.get(url); // pass the url based on the query condition
-    setMovieList(response.data.results); // setState of MovieList
+    setComingList(response.data.results); // setState of MovieList
   };
   // pareho ng componentDidMount, componentWillMount, componentDidUpdate (React life cycle)
   useEffect(() => {
-    handleGetMovies();
+    handleGetUpcomingMovies();
   }, []);
 
   return (
@@ -67,28 +67,27 @@ export const Home = () => {
       <br></br>
       <br></br>
       <h2>
-        <strong>Popular Movies</strong>
+        <strong>Upcoming Movies</strong>
       </h2>
-      <div className="container">
-        {movieList.map((movies: movieProps, index: number) => (
-          <Link to={`/info/${movies.id}`}>
-            <Col span={4}>
-              <img className="myprojects" src={imgURL + movies.poster_path} />
-              <Card
-                key={index}
-                className="cardM"
-                hoverable
-                style={{ width: 200, height: 90 }}
-              >
-                <p className="project-title">{movies.original_title}</p>
-                <Rate disabled defaultValue={4} />
-              </Card>
-            </Col>
-          </Link>
-        ))}
-      </div>
+
+      {upcomingList.map((movies: movieProps, index: number) => (
+        <Link to={`/info/${movies.id}`}>
+          <Col span={4}>
+            <img className="myprojects" src={imgURL + movies.poster_path} />
+            <Card
+              key={index}
+              className="cardM"
+              hoverable
+              style={{ width: 200, height: 90 }}
+            >
+              <p className="project-title">{movies.original_title}</p>
+              <Rate disabled defaultValue={4} />
+            </Card>
+          </Col>
+        </Link>
+      ))}
     </div>
   );
 };
 
-export default Home;
+export default Upcoming;
